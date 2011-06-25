@@ -22,13 +22,13 @@ if ($status) {
 		'class' => 'elgg-message elgg-state-error',
 	));
 	
-	global $CONFIG;
+	$dataroot = elgg_get_config('dataroot');
 	
 	echo "Please check that searchd is running:";
 	echo "<pre>";
 	echo "searchd --stop\n";
-	echo "indexer --all --config {$CONFIG->dataroot}sphinx/sphinx.conf\n";
-	echo "searchd --config {$CONFIG->dataroot}sphinx/sphinx.conf\n";
+	echo "indexer --all --config {$dataroot}sphinx/sphinx.conf\n";
+	echo "searchd --config {$dataroot}sphinx/sphinx.conf\n";
 	echo "</pre>";
 	
 }
