@@ -17,6 +17,7 @@ if ($status) {
 	echo "</table>";
 } else {
 	
+	echo "We got the following error when trying to connect to searchd:";
 	echo elgg_view('output/longtext', array(
 		'value' => $cl->GetLastError(),
 		'class' => 'elgg-message elgg-state-error',
