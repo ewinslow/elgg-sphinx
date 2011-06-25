@@ -10,6 +10,8 @@ function sphinx_init() {
 	elgg_register_plugin_hook_handler('search', 'object', 'sphinx_objects_hook');
 	elgg_register_plugin_hook_handler('search', 'group', 'sphinx_groups_hook');
 	elgg_register_plugin_hook_handler('search', 'user', 'sphinx_users_hook');
+	
+	elgg_register_admin_menu_item('administer', 'sphinx', 'dashboard');
 }
 
 function sphinx_query($params, $index) {
