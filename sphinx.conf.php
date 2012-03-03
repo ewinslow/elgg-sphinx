@@ -11,15 +11,15 @@ global $CONFIG;
 # Your database information.  Copy details from elgg/engine/settings.php
 source elgg
 {
-	type			= mysql
+	type            = mysql
 
-	sql_host		= <?php echo $CONFIG->dbhost; ?>
+	sql_host        = <?php echo $CONFIG->dbhost; ?>
 	
-	sql_user		= <?php echo $CONFIG->dbuser; ?>
+	sql_user        = <?php echo $CONFIG->dbuser; ?>
 	
-	sql_pass		= <?php echo $CONFIG->dbpass; ?>
+	sql_pass        = <?php echo $CONFIG->dbpass; ?>
 	
-	sql_db			= <?php echo $CONFIG->dbname; ?>
+	sql_db          = <?php echo $CONFIG->dbname; ?>
 	
 }
 
@@ -32,13 +32,13 @@ source entities : elgg
 		FROM <?php echo $CONFIG->dbprefix; ?>entities \
 		WHERE e.enabled = 'yes'
 
-	sql_attr_uint		= guid
-	sql_attr_string 	= type
-	sql_attr_uint		= subtype
-	sql_attr_uint		= owner_guid
-	sql_attr_uint		= site_guid
-	sql_attr_uint		= container_guid
-	sql_attr_uint		= access_id
+	sql_attr_uint       = guid
+	sql_attr_string     = type
+	sql_attr_uint       = subtype
+	sql_attr_uint       = owner_guid
+	sql_attr_uint       = site_guid
+	sql_attr_uint       = container_guid
+	sql_attr_uint       = access_id
 	sql_attr_timestamp	= time_created
 	sql_attr_timestamp	= time_updated
 	sql_attr_timestamp	= last_action
@@ -117,47 +117,47 @@ source users : entities
 
 index groups
 {
-	source			= groups
-	path			= <?php echo $CONFIG->dataroot; ?>sphinx/indexes/groups
-	prefix_fields	= name
-	min_prefix_len	= 1
+	source          = groups
+	path            = <?php echo $CONFIG->dataroot; ?>sphinx/indexes/groups
+	prefix_fields   = name
+	min_prefix_len  = 1
 }
 
 index objects
 {
-	source			= objects
-	path			= <?php echo $CONFIG->dataroot; ?>sphinx/indexes/objects
-	prefix_fields	= title
-	min_prefix_len	= 1
+	source          = objects
+	path            = <?php echo $CONFIG->dataroot; ?>sphinx/indexes/objects
+	prefix_fields   = title
+	min_prefix_len  = 1
 }
 
 index users
 {
-	source			= users
-	path			= <?php echo $CONFIG->dataroot; ?>sphinx/indexes/users
-	prefix_fields	= name, username
-	min_prefix_len	= 1
+	source          = users
+	path            = <?php echo $CONFIG->dataroot; ?>sphinx/indexes/users
+	prefix_fields   = name, username
+	min_prefix_len  = 1
 }
 
 indexer
 {
-	mem_limit		= 256M
+	mem_limit       = 256M
 }
 
 searchd
 {
-	listen			= 9312
-	listen			= 9306:mysql41
-	log				= <?php echo $CONFIG->dataroot; ?>sphinx/log/searchd.log
-	query_log		= <?php echo $CONFIG->dataroot; ?>sphinx/log/query.log
-	read_timeout	= 5
-	max_children	= 30
-	pid_file		= <?php echo $CONFIG->dataroot; ?>sphinx/log/searchd.pid
-	max_matches		= 1000
-	seamless_rotate	= 1
-	preopen_indexes	= 0
-	unlink_old		= 1
-	workers			= threads # for RT to work
+	listen          = 9312
+	listen          = 9306:mysql41
+	log             = <?php echo $CONFIG->dataroot; ?>sphinx/log/searchd.log
+	query_log       = <?php echo $CONFIG->dataroot; ?>sphinx/log/query.log
+	read_timeout    = 5
+	max_children    = 30
+	pid_file        = <?php echo $CONFIG->dataroot; ?>sphinx/log/searchd.pid
+	max_matches     = 1000
+	seamless_rotate = 1
+	preopen_indexes = 0
+	unlink_old      = 1
+	workers         = threads # for RT to work
 }
 
 # --eof--
