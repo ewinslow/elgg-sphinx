@@ -34,5 +34,3 @@ if ($status) {
 	echo "</pre>";
 	
 }
-
-echo elgg_view_form('sphinx/configure');

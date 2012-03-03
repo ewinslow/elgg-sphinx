@@ -12,7 +12,8 @@ function sphinx_init() {
 	elgg_register_plugin_hook_handler('search', 'group', 'sphinx_groups_hook');
 	elgg_register_plugin_hook_handler('search', 'user', 'sphinx_users_hook');
 	
-	elgg_register_admin_menu_item('administer', 'sphinx', 'dashboard');
+	elgg_register_admin_menu_item('configure', 'sphinx', 'settings');
+	elgg_register_admin_menu_item('administer', 'sphinx', 'statistics');
 	
 	elgg_register_action('sphinx/configure', dirname(__FILE__) . '/actions/sphinx/configure.php', 'admin');
 }
