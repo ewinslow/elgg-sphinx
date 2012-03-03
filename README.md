@@ -3,7 +3,7 @@
 Uses the open source Sphinx search engine to power search on your Elgg site.
 This is (theoretically) much faster than mysql's fulltext search engine, and
 also provides some nice features such as stemming.  Read more about Sphinx at
-http://sphinxsearch.com/.
+<http://sphinxsearch.com/>.
 
 Currently uses Sphinx for `user`, `group`, and `object` searches only. Falls 
 back to default Elgg search functionality for `tag` and `comment` searches.
@@ -20,23 +20,24 @@ Note: all commands are given as if on Linux.  For Windows, just add ".exe".
 
 1. Place the plugin folder in your "mod" directory as "sphinx"
 2. Go to /admin/plugins and activate the "Sphinx Search" plugin
-3. Download Sphinx -- http://sphinxsearch.com/downloads/beta/
-4. Install Sphinx -- http://sphinxsearch.com/docs/manual-2.0.1.html#installation
-5. Start Sphinx
+3. Go to /admin/settings/sphinx and generate the configuration file.
+4. Download Sphinx -- <http://sphinxsearch.com/downloads/beta/>
+5. Install Sphinx -- <http://sphinxsearch.com/docs/manual-2.0.1.html#installation>
+6. Start Sphinx
    
-   ```
-   <path to sphinx>/bin/searchd --stop
-   <path to sphinx>/bin/indexer --config <elgg data root>/sphinx/sphinx.conf --all
-   <path to sphinx>/bin/searchd --config <elgg data root>/sphinx/sphinx.conf
-   ```
-   
-   You should set up a cron to run the above commands 
-   every so often in order to keep the indexes fresh
+That's it! Here's how to start Sphinx:
+
+	/path/to/sphinx/bin/searchd --stop
+	/path/to/sphinx/bin/indexer --config /elgg/data/root/sphinx/sphinx.conf --all
+	/path/to/sphinx/bin/searchd --config /elgg/data/root/sphinx/sphinx.conf
+       
+You should set up a cron to run the above commands 
+every so often in order to keep the indexes fresh
 
 ## Testing
 I have only tested this plugin on my local Windows machine. I would welcome reports
 of tests in other environments as well!
 
 ## Resources
-* http://sphinxsearch.com/docs/manual-2.0.1.html
-* http://www.ibm.com/developerworks/library/os-php-sphinxsearch/
+* <http://sphinxsearch.com/docs/manual-2.0.1.html>
+* <http://www.ibm.com/developerworks/library/os-php-sphinxsearch/>
