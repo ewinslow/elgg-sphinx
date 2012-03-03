@@ -121,6 +121,7 @@ index groups
 	path            = <?php echo $CONFIG->dataroot; ?>sphinx/indexes/groups
 	prefix_fields   = name
 	min_prefix_len  = 1
+	morphology      = stem_en # For stemming (walking/walked are equivalent searches)
 }
 
 index objects
@@ -129,6 +130,7 @@ index objects
 	path            = <?php echo $CONFIG->dataroot; ?>sphinx/indexes/objects
 	prefix_fields   = title
 	min_prefix_len  = 1
+	morphology      = stem_en # For stemming (walking/walked are equivalent searches)
 }
 
 index users
@@ -137,6 +139,7 @@ index users
 	path            = <?php echo $CONFIG->dataroot; ?>sphinx/indexes/users
 	prefix_fields   = name, username
 	min_prefix_len  = 1
+	morphology      = stem_en # For stemming (walking/walked are equivalent searches)
 }
 
 indexer
@@ -159,5 +162,3 @@ searchd
 	unlink_old      = 1
 	workers         = threads # for RT to work
 }
-
-# --eof--

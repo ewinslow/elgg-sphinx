@@ -2,7 +2,8 @@
 
 function sphinx_init() {
 	elgg_register_class('SphinxClient', dirname(__FILE__) . '/vendors/sphinx/sphinxapi.php');
-	
+	elgg_register_viewtype('sphinx');
+
 	elgg_unregister_plugin_hook_handler('search', 'object', 'search_objects_hook');
 	elgg_unregister_plugin_hook_handler('search', 'group', 'search_groups_hook');
 	elgg_unregister_plugin_hook_handler('search', 'user', 'search_users_hook');
@@ -12,6 +13,8 @@ function sphinx_init() {
 	elgg_register_plugin_hook_handler('search', 'user', 'sphinx_users_hook');
 	
 	elgg_register_admin_menu_item('administer', 'sphinx', 'dashboard');
+	
+	elgg_register_action('sphinx/configure', dirname(__FILE__) . '/actions/sphinx/configure.php', 'admin');
 }
 
 function sphinx_query($params, $index) {
@@ -134,12 +137,7 @@ function sphinx_users_hook($hook, $type, $value, $params) {
 
 function sphinx_write_conf() {
 	$handle = fopen(elgg_get_data_path() . 'sphinx/sphinx.conf', 'w');
-	
-	ob_start();
-	include dirname(__FILE__) . '/sphinx.conf.php';
-	$conf = ob_get_clean();
-	
-	fwrite($handle, $conf);
+	fwrite($handle, elgg_view('sphinx/conf'));
 	fclose($handle);
 }
 

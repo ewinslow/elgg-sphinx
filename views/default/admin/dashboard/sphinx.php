@@ -4,6 +4,7 @@ $cl = new SphinxClient();
 $cl->setServer('localhost', 9312);
 $status = $cl->Status();
 
+
 if ($status) {
 	echo elgg_view('output/longtext', array(
 		'value' => 'IO and CPU counters will only be available if searchd was started with --iostats and --cpustats switches respectively.',
@@ -33,3 +34,5 @@ if ($status) {
 	echo "</pre>";
 	
 }
+
+echo elgg_view_form('sphinx/configure');
