@@ -160,5 +160,11 @@ searchd
 	seamless_rotate = 1
 	preopen_indexes = 0
 	unlink_old      = 1
+	mva_updates_pool	= 1M
+	max_packet_size		= 8M
+	max_filters		= 256
+	max_filter_values	= 4096
+	max_batch_queries	= 32
 	workers         = threads # for RT to work
+	compat_sphinxql_magics = 0
 }
