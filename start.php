@@ -51,8 +51,10 @@ function sphinx_query($params, $index) {
 	
 	$entities = array();
 	
+	if(!empty($result['matches'])){
 	foreach ($result['matches'] as $match) {
 		$entities[] = entity_row_to_elggstar((object)$match['attrs']);
+	}
 	}
 		
 	return array(
