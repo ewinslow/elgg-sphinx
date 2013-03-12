@@ -25,7 +25,7 @@ function sphinx_query($params, $index) {
 	$cl->SetLimits($params['offset'], $params['limit']);
 	
 	if (isset($params['subtype'])) {
-		$subtype_id = get_subtype_id($params['type'], $params['subtype']);
+		$subtype_id = intval(get_subtype_id($params['type'], $params['subtype']));
 		$cl->setFilter('subtype', array($subtype_id));
 	}
 	
