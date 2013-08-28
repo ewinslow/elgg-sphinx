@@ -22,7 +22,7 @@ Note: all commands are given as if on Linux.  For Windows, just add ".exe".
 2. Go to /admin/plugins and activate the "Sphinx Search" plugin
 3. Go to /admin/settings/sphinx and generate the configuration file.
 4. Download Sphinx -- <http://sphinxsearch.com/downloads/beta/>
-5. Install Sphinx -- <http://sphinxsearch.com/docs/manual-2.0.1.html#installation>
+5. Install Sphinx -- <http://sphinxsearch.com/docs/manual-2.0.9.html#installation>
 6. Start Sphinx
    
 That's it! Here's how to start Sphinx:
@@ -39,5 +39,5 @@ I have only tested this plugin on my local Windows machine. I would welcome repo
 of tests in other environments as well!
 
 ## Resources
-* <http://sphinxsearch.com/docs/manual-2.0.1.html>
+* <http://sphinxsearch.com/docs/manual-2.0.9.html>
 * <http://www.ibm.com/developerworks/library/os-php-sphinxsearch/>
