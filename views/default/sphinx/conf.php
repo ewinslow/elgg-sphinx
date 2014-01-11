@@ -168,6 +168,7 @@ searchd
 	read_timeout    = 5
 	max_children    = 30
 	pid_file        = <?php echo $CONFIG->dataroot; ?>sphinx/log/searchd.pid
+	binlog_path 	= <?php echo $CONFIG->dataroot; ?>sphinx/log
 	max_matches     = 1000
 	seamless_rotate = 1
 	preopen_indexes = 1
