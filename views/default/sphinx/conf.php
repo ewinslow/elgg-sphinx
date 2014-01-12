@@ -120,8 +120,12 @@ index groups
 	source          = groups
 	path            = <?php echo $CONFIG->dataroot; ?>sphinx/indexes/groups
 	prefix_fields   = name
-	min_prefix_len  = 1
-	morphology      = stem_en # For stemming (walking/walked are equivalent searches)
+	min_prefix_len	= 3
+	min_word_len = 3
+	enable_star = 1
+	morphology  = stem_en, soundex, metaphone
+	html_strip = 1
+	expand_keywords = 1
 }
 
 index objects
@@ -129,8 +133,12 @@ index objects
 	source          = objects
 	path            = <?php echo $CONFIG->dataroot; ?>sphinx/indexes/objects
 	prefix_fields   = title
-	min_prefix_len  = 1
-	morphology      = stem_en # For stemming (walking/walked are equivalent searches)
+	min_prefix_len	= 3
+	min_word_len = 3
+	enable_star = 1
+	morphology  = stem_en, soundex, metaphone
+	html_strip = 1
+	expand_keywords = 1
 }
 
 index users
@@ -138,8 +146,12 @@ index users
 	source          = users
 	path            = <?php echo $CONFIG->dataroot; ?>sphinx/indexes/users
 	prefix_fields   = name, username
-	min_prefix_len  = 1
-	morphology      = stem_en # For stemming (walking/walked are equivalent searches)
+	min_prefix_len	= 3
+	min_word_len = 3
+	enable_star = 1
+	morphology  = stem_en, soundex, metaphone
+	html_strip = 1
+	expand_keywords = 1
 }
 
 indexer
@@ -154,11 +166,13 @@ searchd
 	log             = <?php echo $CONFIG->dataroot; ?>sphinx/log/searchd.log
 	query_log       = <?php echo $CONFIG->dataroot; ?>sphinx/log/query.log
 	read_timeout    = 5
+	client_timeout	= 300
 	max_children    = 30
 	pid_file        = <?php echo $CONFIG->dataroot; ?>sphinx/log/searchd.pid
+	binlog_path 	= <?php echo $CONFIG->dataroot; ?>sphinx/log
 	max_matches     = 1000
 	seamless_rotate = 1
-	preopen_indexes = 0
+	preopen_indexes = 1
 	unlink_old      = 1
 	mva_updates_pool	= 1M
 	max_packet_size		= 8M

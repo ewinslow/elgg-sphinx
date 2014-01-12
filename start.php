@@ -26,7 +26,7 @@ function sphinx_query($params, $index) {
 	
 	if (isset($params['subtype'])) {
 		$subtype_id = intval(get_subtype_id($params['type'], $params['subtype']));
-		$cl->setFilter('subtype', array($subtype_id));
+		$cl->SetFilter('subtype', array($subtype_id));
 	}
 	
 	if (isset($params['owner_guid'])) {
@@ -131,7 +131,7 @@ function sphinx_users_hook($hook, $type, $value, $params) {
 		$title = search_get_highlighted_relevant_substrings($user->username, $params['query']);
 		$user->setVolatileData('search_matched_title', $title);
 
-		$desc = search_get_highlighted_relevant_substrings($user->name, $params['query']);
+		$desc = search_get_highlighted_relevant_substrings($user->description, $params['query']);
 		$user->setVolatileData('search_matched_description', $desc);
 	}
 	
