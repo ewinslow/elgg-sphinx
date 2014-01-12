@@ -166,6 +166,7 @@ searchd
 	log             = <?php echo $CONFIG->dataroot; ?>sphinx/log/searchd.log
 	query_log       = <?php echo $CONFIG->dataroot; ?>sphinx/log/query.log
 	read_timeout    = 5
+	client_timeout	= 300
 	max_children    = 30
 	pid_file        = <?php echo $CONFIG->dataroot; ?>sphinx/log/searchd.pid
 	binlog_path 	= <?php echo $CONFIG->dataroot; ?>sphinx/log
